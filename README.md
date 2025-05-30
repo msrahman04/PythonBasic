@@ -332,6 +332,161 @@ print(f"Intersection: {set1 & set2}")  # {3, 4}
 print(f"Difference: {set1 - set2}")    # {1, 2}
 ```
 
+# Python Data Structures Comparison
+
+| Feature | **Lists** | **Tuples** | **Dictionaries** | **Sets** |
+|---------|-----------|------------|------------------|----------|
+| **Syntax** | `[]` | `()` | `{}` | `{}` or `set()` |
+| **Mutability** | Mutable (can change) | Immutable (cannot change) | Mutable (can change) | Mutable (can change) |
+| **Ordered** | Yes (maintains insertion order) | Yes (maintains insertion order) | Yes (Python 3.7+) | No (unordered) |
+| **Duplicates** | Allowed | Allowed | Keys: No, Values: Yes | Not allowed |
+| **Indexing** | Yes `list[0]` | Yes `tuple[0]` | By key `dict[key]` | No |
+| **Data Storage** | Single values | Single values | Key-value pairs | Unique values only |
+
+## Examples
+
+### Lists
+```python
+# Creation
+fruits = ["apple", "banana", "orange", "apple"]
+numbers = [1, 2, 3, 4, 5]
+
+# Access by index
+print(fruits[0])        # apple
+print(fruits[-1])       # apple (last item)
+
+# Modification
+fruits.append("grape")           # Add to end
+fruits.insert(1, "kiwi")         # Insert at index 1
+fruits.remove("banana")          # Remove first occurrence
+fruits[0] = "cherry"             # Change by index
+
+# Common operations
+print(len(fruits))               # Length
+print("apple" in fruits)         # Check membership
+fruits.sort()                    # Sort in place
+```
+
+### Tuples
+```python
+# Creation
+coordinates = (10, 20)
+person = ("Alice", 25, "Engineer")
+single_item = (42,)              # Note the comma for single item
+
+# Access by index
+print(coordinates[0])            # 10
+print(person[-1])                # Engineer
+
+# Unpacking
+x, y = coordinates
+name, age, job = person
+
+# Cannot modify (immutable)
+# coordinates[0] = 5             # This would cause an error!
+
+# Common operations
+print(len(person))               # Length
+print("Alice" in person)         # Check membership
+print(person.count("Alice"))     # Count occurrences
+print(person.index(25))          # Find index of value
+```
+
+### Dictionaries
+```python
+# Creation
+student = {
+    "name": "John",
+    "age": 22,
+    "grade": "A",
+    "courses": ["Math", "Physics"]
+}
+
+# Alternative creation
+student2 = dict(name="Jane", age=20, grade="B")
+
+# Access by key
+print(student["name"])           # John
+print(student.get("email", "N/A"))  # N/A (default value)
+
+# Modification
+student["email"] = "john@email.com"  # Add new key-value
+student["age"] = 23                  # Update existing value
+del student["grade"]                 # Delete key-value pair
+
+# Common operations
+print(student.keys())            # Get all keys
+print(student.values())          # Get all values
+print(student.items())           # Get key-value pairs
+
+# Iteration
+for key, value in student.items():
+    print(f"{key}: {value}")
+```
+
+### Sets
+```python
+# Creation
+colors = {"red", "green", "blue"}
+numbers = {1, 2, 3, 4, 5}
+empty_set = set()                # Note: {} creates an empty dict
+
+# From list (removes duplicates)
+unique_numbers = set([1, 2, 2, 3, 3, 4])  # {1, 2, 3, 4}
+
+# Modification
+colors.add("yellow")             # Add single item
+colors.update(["purple", "orange"])  # Add multiple items
+colors.remove("red")             # Remove item (error if not found)
+colors.discard("pink")           # Remove item (no error if not found)
+
+# Set operations
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+print(set1 | set2)               # Union: {1, 2, 3, 4, 5, 6}
+print(set1 & set2)               # Intersection: {3, 4}
+print(set1 - set2)               # Difference: {1, 2}
+print(set1 ^ set2)               # Symmetric difference: {1, 2, 5, 6}
+
+# Common operations
+print(len(colors))               # Length
+print("blue" in colors)          # Check membership
+```
+
+## When to Use Each Data Structure
+
+| Data Structure | **Best Used For** | **Example Use Cases** |
+|----------------|-------------------|-----------------------|
+| **Lists** | Ordered collections that need modification | Shopping lists, student grades, game scores |
+| **Tuples** | Immutable sequences, fixed data | Coordinates (x, y), RGB colors (255, 128, 0), database records |
+| **Dictionaries** | Key-value relationships, fast lookups | User profiles, configuration settings, word counts |
+| **Sets** | Unique collections, mathematical operations | Removing duplicates, membership testing, set mathematics |
+
+## Performance Characteristics
+
+| Operation | **Lists** | **Tuples** | **Dictionaries** | **Sets** |
+|-----------|-----------|------------|------------------|----------|
+| **Access by index/key** | O(1) | O(1) | O(1) average | N/A |
+| **Search (membership test)** | O(n) | O(n) | O(1) average | O(1) average |
+| **Insert at end** | O(1) amortized | N/A | O(1) average | O(1) average |
+| **Insert at beginning** | O(n) | N/A | N/A | N/A |
+| **Delete** | O(n) | N/A | O(1) average | O(1) average |
+
+## Common Methods Summary
+
+### Lists
+- `append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `extend()`, `clear()`
+
+### Tuples
+- `count()`, `index()` (Limited methods due to immutability)
+
+### Dictionaries
+- `get()`, `keys()`, `values()`, `items()`, `pop()`, `update()`, `clear()`, `setdefault()`
+
+### Sets
+- `add()`, `remove()`, `discard()`, `pop()`, `clear()`, `union()`, `intersection()`, `difference()`
+
 ## Object-Oriented Programming {#object-oriented-programming}
 
 ### Classes and Objects
