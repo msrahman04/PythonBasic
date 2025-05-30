@@ -713,4 +713,5 @@ print(dt.datetime.now())  # Current datetime
 4. Study data science tools (NumPy, pandas, scikit-learn)
 5. Build real-world applications
 
-Remember: The best way to learn Python is by practicing. Start with small programs and gradually build more complex projects!
+Remember: The best way to learn Python is by practicing. 
+Start with small programs and gradually build more complex projects!
