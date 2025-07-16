@@ -12,6 +12,19 @@
 9. [Error Handling](#error-handling)
 10. [Modules and Packages](#modules-and-packages)
 
+
+
+Variables and Data Types
+Operators
+Control Flow (if, else, loops)
+Functions
+Lists, Tuples, and Dictionaries
+Strings
+Modules and Packages
+File Handling
+Exception Handling
+Object-Oriented Programming (Classes and Objects)
+
 ## Introduction to Python {#introduction}
 
 Python is a high-level, interpreted programming language known for its simplicity and readability. It was created by Guido van Rossum and first released in 1991.
